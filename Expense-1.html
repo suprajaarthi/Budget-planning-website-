@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9">
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Caveat:wght@500&family=Kaushan+Script&family=Ovo&display=swap" rel="stylesheet">
+            <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Wallet Manager</title>
+    <link rel="stylesheet" href="../assets/css/ExpenseTracker.css" />
+  </head>
+  <body>
+    <br><br>
+    <div class="grid-container">
+    <div class="grid-child-svg">
+    <img class="svg-img" src="https://lukaszadam.com/assets/downloads/bitcoin_miner.svg" style="width: 450px;height: 600px;" >
+</img>
+    </div>
+    
+      <div class="grid-child">
+        <br>
+  <h1 class="head"> 💰 Wallet Manager </h1>
+    <div class="container">
+      <h4>Your Balance</h4>
+      <h1 id="balance">$0.00</h1>
+      <div class="inc-exp-container">
+        <div>
+            <br>
+          <h4 style="color: #bbb;">Income</h4>
+          <p id="money-plus" class="money-plus">
+            +₹0.00
+          </p>
+        </div>
+        <div>
+            <br>
+          <h4 style="color: #bbb;">Expense</h4>
+          <p id="money-minus" class="money-minus">
+            -₹0.00
+          </p>
+        </div>
+      </div>
+
+      <h3>History</h3>
+      <hr>
+      <ul id="list" class="list">
+        <!-- <li class="minus">
+          Cash <span>-$400</span
+          ><button class="delete-btn">x</button>
+        </li> -->
+      </ul>
+      <h3>Add New Transaction</h3>
+      <hr>
+      <form id="form">
+          <div class="form-control">
+              <label for="text">Expense</label>
+              <input type="text" id="text" placeholder="Enter Expense...."/>
+          </div>
+          <div class="form-control">
+              <label for="amount">Amount <br> (negative - expense , positive - income)</label>
+              <input type="number" id="amount" placeholder="Enter Amount..."> 
+          </div>
+          <button class="btn">Add transaction</button>
+         <br>
+      </form>
+      
+    </div>
+    <!-- <img src="https://lukaszadam.com/assets/downloads/bitcoin_miner.svg" alt=""> -->
+ 
+</div>
+<br>
+    </div>
+    <style>
+      h1,h3,h4,label{
+        font-family: 'Ovo', serif;
+      }
+        :root {
+    --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+      0 1px 2px rgba(0, 0, 0, 0.24);
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+
+    background-color:  #EDF1FF;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23cc0000' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23aa0000' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23d6002b' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23b10022' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23d9004b' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23b2003d' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23d3006c' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23ac0057' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23c4008c' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%239e0071' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23aa00aa' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23880088' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+      "Open Sans", "Helvetica Neue", sans-serif;
+  }
+
+  .grid-child{
+      z-index: 4;
+background: #1FA2FF;
+background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  
+background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);
+/* background: linear-gradient(to right, #fa9512, #feffb4, #fa9512); */
+
+background-size: cover;
+      /* background: #74dfc2; */
+      width: 500px;
+      border-radius: 20px;
+      margin-left: -15rem !important;
+      /* box-shadow: -2px 3px 99px 4px rgba(96,96,96,0.59); */
+/* -webkit-box-shadow: -2px 3px 99px 4px rgba(96,96,96,0.59);
+-moz-box-shadow: -2px 3px 99px 4px rgba(96,96,96,0.59); */
+  }
+  .svg-img{
+    
+      margin-left: -23rem;
+  }
+  .grid-child-svg{
+    width: 300px !important;
+    height: auto;
+    margin-left: -5rem;
+    margin-top: 5rem;
+    flex: 1;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+} 
+
+  .head{
+      margin-left: 7rem;
+  }
+  .container {
+    margin: 30px auto;
+    width: 350px;
+  }
+  
+  h1 {
+    letter-spacing: 1px;
+    margin: 0;
+  }
+  
+  h3 {
+    /* border-bottom: 1px solid #bbb; */
+    padding-bottom: 10px;
+    margin: 40px 0 10px;
+  }
+  
+  h4 {
+    margin: 0;
+    text-transform: uppercase;
+  }
+  
+  .inc-exp-container {
+    background-color: black;
+    box-shadow: var(--box--shadow);
+    /* padding: px; */
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .inc-exp-container > div {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .inc-exp-container > div:first-of-type {
+    border-right: 1px solid #dedede;
+  }
+  
+  .money {
+    font-size: 2;
+    letter-spacing: 1px;
+    margin: 5px 0;
+  }
+  .money-plus {
+    color: #00ff6a;
+  }
+  
+  .money-minus {
+    color: #ff0404;
+  }
+  
+  label {
+    display: inline-block;
+    margin: 10px 0;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    border: 1px solid #dedede;
+    color:rgba(255, 255, 255, 0.884);
+    border-radius: 2px;
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+    background-color: black;
+    width: 100%;
+  }
+
+  .btn {
+    cursor: pointer;
+    background-color:  #FFD662;
+    box-shadow: v ar(--box-shadow);
+    color: #fff;
+    border: 0;
+    display: block;
+    font-size: 16px;
+    margin: 10px 0 30px;
+    padding: 10px;
+    width: 100%;
+  }
+   button:hover 
+  {
+    background-color:#5cfa35;
+  }
+  .btn:focus,
+  .delete-btn:focus {
+    outline: 0;
+  }
+  
+  .list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 40px;
+    
+  }
+  
+  .list li {
+    background-color: black;
+    box-shadow: var(--box--shadow);
+    color:rgba(255, 255, 255, 0.884);
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  .list li.plus {
+    border-right: 5px solid #2ecc71;
+  }
+  
+  .list li.minus {
+    border-right: 5px solid #c0392b;
+  }
+  
+  .delete-btn {
+    cursor: pointer;
+    background-color: #e74c3c;
+    border: 0;
+    color: #fff;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 2px 5px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-100%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .list li:hover .delete-btn {
+    opacity: 1;
+  }
+  @media only screen and (max-width:1100px) {
+    img{
+      display: none;
+    }
+  }
+  @media only screen and (max-width:470px) {
+    .container{
+      width: 80%;
+       margin-left: 70px;
+       overflow-x: hidden;
+    }
+  }
+  @media only screen and (max-width:415px) {
+    body
+    {
+      min-zoom: 120%;
+    }
+    .container{
+      width: 70%;
+       margin-left: 190px;
+       margin-top: 30px;
+       overflow-x: hidden;
+    }
+    .grid-container{
+      /* margin: 20rem ; */
+      margin-top: 20px;
+    }
+  }
+  @media only screen and (max-width:345px) {
+    .container{
+       margin-left: 120px;
+       overflow-x: hidden;
+    }
+  }
+
+    </style>
+    <script>
+        const balance = document.getElementById(
+    "balance"
+  );
+  const money_plus = document.getElementById(
+    "money-plus"
+  );
+  const money_minus = document.getElementById(
+    "money-minus"
+  );
+  const list = document.getElementById("list");
+  const form = document.getElementById("form");
+  const text = document.getElementById("text");
+  const amount = document.getElementById("amount");
+  // const dummyTransactions = [
+  //   { id: 1, text: "Flower", amount: -20 },
+  //   { id: 2, text: "Salary", amount: 300 },
+  //   { id: 3, text: "Book", amount: -10 },
+  //   { id: 4, text: "Camera", amount: 150 },
+  // ];
+  
+  // let transactions = dummyTransactions;
+  
+  //last 
+  const localStorageTransactions = JSON.parse(localStorage.getItem('transactions'));
+  
+  let transactions = localStorage.getItem('transactions') !== null ? localStorageTransactions : [];
+  
+  //5
+  //Add Transaction
+  function addTransaction(e){
+    e.preventDefault();
+    if(text.value.trim() === '' || amount.value.trim() === ''){
+      // alert('please add Expense and Amount')
+      Swal.fire({
+        icon: 'warning',
+        title: 'Enter Expense and Amount',
+        html: "Keep track of your money 💰. Beware of little expenses, a small leak will sink a great ship  💵 💴 !!!",
+        footer: ' 💰 Happy Saving :)'
+    });
+
+    }else{
+      const transaction = {
+        id:generateID(),
+        text:text.value,
+        amount:+amount.value
+      }
+  
+      transactions.push(transaction);
+  
+      addTransactionDOM(transaction);
+      updateValues();
+      updateLocalStorage();
+      text.value='';
+      amount.value='';
+    }
+  }
+  
+  
+  //5.5
+  //Generate Random ID
+  function generateID(){
+    return Math.floor(Math.random()*1000000000);
+  }
+  
+  //2
+  
+  //Add Trasactions to DOM list
+  function addTransactionDOM(transaction) {
+    //GET sign
+    const sign = transaction.amount < 0 ? "-" : "+";
+    const item = document.createElement("li");
+  
+    //Add Class Based on Value
+    item.classList.add(
+      transaction.amount < 0 ? "minus" : "plus"
+    );
+  
+    item.innerHTML = `
+      ${transaction.text} <span>${sign}${Math.abs(
+      transaction.amount
+    )}</span>
+      <button class="delete-btn" onclick="removeTransaction(${transaction.id})">x</button>
+      `;
+    list.appendChild(item);
+  }
+  
+  //4
+  
+  //Update the balance income and expence
+  function updateValues() {
+    const amounts = transactions.map(
+      (transaction) => transaction.amount
+    );
+    const total = amounts
+      .reduce((acc, item) => (acc += item), 0)
+      .toFixed(2);
+    const income = amounts
+      .filter((item) => item > 0)
+      .reduce((acc, item) => (acc += item), 0)
+      .toFixed(2);
+    const expense =
+      (amounts
+        .filter((item) => item < 0)
+        .reduce((acc, item) => (acc += item), 0) *
+      -1).toFixed(2);
+  
+      balance.innerText=`₹${total}`;
+      money_plus.innerText = `₹${income}`;
+      money_minus.innerText = `₹${expense}`;
+  }
+  
+  
+  //6 
+  
+  //Remove Transaction by ID
+  function removeTransaction(id){
+    transactions = transactions.filter(transaction => transaction.id !== id);
+    updateLocalStorage();
+    Init();
+  }
+  //last
+  //update Local Storage Transaction
+  function updateLocalStorage(){
+    localStorage.setItem('transactions',JSON.stringify(transactions));
+  }
+  
+  //3
+  
+  //Init App
+  function Init() {
+    list.innerHTML = "";
+    transactions.forEach(addTransactionDOM);
+    updateValues();
+  }
+  
+  Init();
+  
+  form.addEventListener('submit',addTransaction);
+
+    </script>
+  </body>
+</html>
